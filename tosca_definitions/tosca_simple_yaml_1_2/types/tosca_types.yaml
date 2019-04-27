@@ -9,12 +9,25 @@ metadata:
 description: TOSCA 1.2 normative types
 
 imports:
-  - tosca_artifact_types:     tosca_simple_yaml_1_2/artifacts.yaml
-  - tosca_data_types:         tosca_simple_yaml_1_2/datatypes.yaml
-  - tosca_capability_types:   tosca_simple_yaml_1_2/capabilities.yaml
-  - tosca_interfaces_types:   tosca_simple_yaml_1_2/interfaces.yaml
-  - tosca_node_types:         tosca_simple_yaml_1_2/nodes.yaml
-  - tosca_relationship_types: tosca_simple_yaml_1_2/relationships.yaml
-  - tosca_group_types:        tosca_simple_yaml_1_2/groups.yaml
-  - tosca_policy_types:       tosca_simple_yaml_1_2/policies.yaml
-
+  # Following syntax was in TOSCA 1.0 but is not still present in TOSCA 1.2.
+  #
+  # - tosca_artifact_types:     tosca_simple_yaml_1_2/artifacts.yaml
+  # - tosca_data_types:         tosca_simple_yaml_1_2/datatypes.yaml
+  # - tosca_capability_types:   tosca_simple_yaml_1_2/capabilities.yaml
+  # - tosca_interfaces_types:   tosca_simple_yaml_1_2/interfaces.yaml
+  # - tosca_node_types:         tosca_simple_yaml_1_2/nodes.yaml
+  # - tosca_relationship_types: tosca_simple_yaml_1_2/relationships.yaml
+  # - tosca_group_types:        tosca_simple_yaml_1_2/groups.yaml
+  # - tosca_policy_types:       tosca_simple_yaml_1_2/policies.yaml
+  #
+  # Moreover the imported files are in the same directory than this file.
+  # So tosca_simple_yaml_1_2/ is not appropriate.
+  #
+  - artifacts.yaml
+  - datatypes.yaml
+  - capabilities.yaml
+  - interfaces.yaml
+  - nodes.yaml
+  - relationships.yaml
+  - groups.yaml
+  - policies.yaml

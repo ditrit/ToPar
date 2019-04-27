@@ -42,30 +42,32 @@ node_types:
       Standard:
         type: tosca.interfaces.node.lifecycle.Standard
 
-    workflows:
-      install:
-        steps:
-          install_sequence:
-            activities:
-             - set_state: creating
-             - call_operation: tosca.interfaces.node.lifecycle.Standard.create
-             - set_state: created
-             - set_state: configuring
-             - call_operation: tosca.interfaces.node.lifecycle.Standard.configure
-             - set_state: configured
-             - set_state: starting
-             - call_operation: tosca.interfaces.node.lifecycle.Standard.start
-             - set_state: started
-      uninstall:
-        steps:
-          uninstall_sequence:
-            activities:
-              - set_state: stopping
-              - call_operation: tosca.interfaces.node.lifecycle.Standard.stop
-              - set_state: stopped
-              - set_state: deleting
-              - call_operation: tosca.interfaces.node.lifecycle.Standard.delete
-              - set_state: deleted
+    # workflows is not a keyword of node type declaration.
+    #
+    # workflows:
+    #   install:
+    #     steps:
+    #       install_sequence:
+    #         activities:
+    #          - set_state: creating
+    #          - call_operation: tosca.interfaces.node.lifecycle.Standard.create
+    #          - set_state: created
+    #          - set_state: configuring
+    #          - call_operation: tosca.interfaces.node.lifecycle.Standard.configure
+    #          - set_state: configured
+    #          - set_state: starting
+    #          - call_operation: tosca.interfaces.node.lifecycle.Standard.start
+    #          - set_state: started
+    #   uninstall:
+    #     steps:
+    #       uninstall_sequence:
+    #         activities:
+    #           - set_state: stopping
+    #           - call_operation: tosca.interfaces.node.lifecycle.Standard.stop
+    #           - set_state: stopped
+    #           - set_state: deleting
+    #           - call_operation: tosca.interfaces.node.lifecycle.Standard.delete
+    #           - set_state: deleted
 
   #section: 5.9.2 tosca.nodes.Abstract.Compute
   tosca.nodes.Abstract.Compute:
@@ -73,9 +75,11 @@ node_types:
     capabilities:
       host:
         type: tosca.capabilities.Compute
-        valid_source_types: []
-  
-  
+        # Following is an inconsistency in the TOSCA 1.2 specification as Page 97 says that
+        # valid_source_types is "An optional list of one or more valid names of Node Type ..."
+        # valid_source_types: []
+
+
   #section: 5.9.3 tosca.nodes.Compute
   tosca.nodes.Compute:
     derived_from: tosca.nodes.Abstract.Compute
